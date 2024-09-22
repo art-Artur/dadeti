@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная страница</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="img/logo.jpg" alt="Logo iconka">
+            <a>Книжный компас</a>
+        </div>
+    </header>
+    
+    <main>
+        <div class="navigation-panel">
+            <ul>
+                <li><a href="#">Книги</a></li>
+                <li><a href="#">Журналы</a></li>
+                <li><a href="#">Статьи</a></li>
+            </ul>
+        </div>
+        <section class="carousel">
+            <div class="carousel-container">
+                <button class="prev">❮</button>
+                <div class="carousel-slide"></div>
+                <button class="next">❯</button>
+            </div>
+            <div class="carousel-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </section>
+
+        <section class="search">
+            <input type="text" placeholder="Книги, журналы, статьи, сосиски...">
+            <button>Поиск</button>
+        </section>
+
+        <section class="read-today">
+            <h2>Читайте сегодня:</h2>
+            <div class="read-today-items">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>    
+            </div>
+        </section>
+    </main>
+</body>
+</html>
