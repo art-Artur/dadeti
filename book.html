@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Статьи о книгах</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fdfaf7;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 20px;
+        }
+        .filters {
+            position: fixed; /* Фиксированное положение */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Центровка */
+            width: 300px;
+            background-color: #d9ecf2; /* Голубой фон */
+            padding: 20px;
+            border-radius: 8px;
+            display: none; /* Скрываем фильтр по умолчанию */
+            z-index: 10;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Тень */
+        }
+        .articles {
+            width: 100%;
+        }
+        .article {
+            display: flex;
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .article img {
+            width: 120px;
+            height: 120px;
+            margin-right: 15px;
+            border-radius: 8px;
+            background-color: #3b5f78;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .article-content {
+            flex: 1;
+        }
+        .article-content h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+        .article-content p {
+            margin: 10px 0;
+            color: #555;
+        }
+        .filter-toggle-btn {
+            margin-bottom: 10px;
+            padding: 10px 20px;
+            background-color: #3b5f78;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .filter-toggle-btn:hover {
+            background-color: #567c8d;
+        }
+        .close-filters {
+            display: block;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #ff6b6b;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+        }
+        .close-filters:hover {
+            background-color: #ff4d4d;
+        }
+    </style>
+    <script>
+        const articles = [
+            { title: "Война и мир", author: "Лев Толстой", year: 1869, genre: "Роман", description: "Эпопея о войне и любви.", popularity: 5 },
+            { title: "Преступление и наказание", author: "Фёдор Достоевский", year: 1866, genre: "Роман", description: "Драма о морали и искуплении.", popularity: 4 },
+            { title: "Мастер и Маргарита", author: "Михаил Булгаков", year: 1967, genre: "Фантастика", description: "Мистический роман о добре и зле.", popularity: 5 },
+            { title: "Отцы и дети", author: "Иван Тургенев", year: 1862, genre: "Роман", description: "Конфликт поколений и взглядов.", popularity: 3 },
+            { title: "Евгений Онегин", author: "Александр Пушкин", year: 1833, genre: "Поэма", description: "Роман в стихах о любви и судьбе.", popularity: 4 }
+        ];
+
+        function displayArticles(filteredArticles) {
+            const articlesContainer = document.querySelector(".articles");
+            articlesContainer.innerHTML = "";
+            filteredArticles.forEach(article => {
+                articlesContainer.innerHTML += `
+                    <div class="article">
+                        <img src="#" alt="Картинка">
+                        <div class="article-content">
+                            <h3>${article.title}</h3>
+                            <p><b>Автор:</b> ${article.author}</p>
+                            <p><b>Жанр:</b> ${article.genre}, <b>Год:</b> ${article.year}</p>
+                            <p>${article.description}</p>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function toggleFilters() {
+            const filters = document.querySelector(".filters");
+            filters.style.display = filters.style.display === "none" ? "block" : "none";
+        }
+
+        function filterArticles() {
+            const selectedGenres = Array.from(document.querySelectorAll("input[name='genre']:checked")).map(input => input.value);
+            const selectedYears = Array.from(document.querySelectorAll("input[name='year']:checked")).map(input => Number(input.value));
+            const filtered = articles.filter(article => 
+                (selectedGenres.length === 0 || selectedGenres.includes(article.genre)) &&
+                (selectedYears.length === 0 || selectedYears.includes(article.year))
+            );
+            displayArticles(filtered);
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            displayArticles(articles);
+        });
+    </script>
+</head>
+<body>    
+    <header>
+        <!-- Логотип -->
+        <div class="logo">
+            <img src="img/logo.jpg" alt="Logo iconka">
+            <a href="index.html">Книжный компас</a>
+        </div>
+
+        <!-- Навигация -->
+        <div class="navigation-panel">
+            <ul>
+                <li><a href="book.html">Книги</a></li>
+                <li><a href="journal.html">Журналы</a></li>
+                <li><a href="article.html">Статьи</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="search">
+        <input type="text" placeholder="Книги, журналы, статьи, сосиски...">
+        <button>Поиск</button>
+    </section>
+
+    <button class="filter-toggle-btn" onclick="toggleFilters()">Показать фильтры</button>
+    <div class="container">
+        <div class="filters">
+            <h3>Фильтры</h3>
+            <div class="filter-category">
+                <h4>Жанры</h4>
+                <div><input type="checkbox" name="genre" value="Роман" onchange="filterArticles()"> Роман</div>
+                <div><input type="checkbox" name="genre" value="Фантастика" onchange="filterArticles()"> Фантастика</div>
+                <div><input type="checkbox" name="genre" value="Поэма" onchange="filterArticles()"> Поэма</div>
+            </div>
+            <div class="filter-category">
+                <h4>Годы</h4>
+                <div><input type="checkbox" name="year" value="1869" onchange="filterArticles()"> 1869</div>
+                <div><input type="checkbox" name="year" value="1866" onchange="filterArticles()"> 1866</div>
+                <div><input type="checkbox" name="year" value="1967" onchange="filterArticles()"> 1967</div>
+                <div><input type="checkbox" name="year" value="1833" onchange="filterArticles()"> 1833</div>
+            </div>
+            <button class="close-filters" onclick="toggleFilters()">Закрыть</button>
+        </div>
+        
+        <div class="articles"></div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Книжный компас. А те, кто делали этот проект - крутышки:)</p>
+    </footer>
+</body>
+</html>
