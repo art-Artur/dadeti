@@ -93,20 +93,60 @@
     </style>
     <script>
         const articles = [
-            { title: "Война и мир", author: "Лев Толстой", year: 1869, genre: "Роман", description: "Эпопея о войне и любви.", popularity: 5 },
-            { title: "Преступление и наказание", author: "Фёдор Достоевский", year: 1866, genre: "Роман", description: "Драма о морали и искуплении.", popularity: 4 },
-            { title: "Мастер и Маргарита", author: "Михаил Булгаков", year: 1967, genre: "Фантастика", description: "Мистический роман о добре и зле.", popularity: 5 },
-            { title: "Отцы и дети", author: "Иван Тургенев", year: 1862, genre: "Роман", description: "Конфликт поколений и взглядов.", popularity: 3 },
-            { title: "Евгений Онегин", author: "Александр Пушкин", year: 1833, genre: "Поэма", description: "Роман в стихах о любви и судьбе.", popularity: 4 }
+            {
+                title: "Война и мир",
+                author: "Лев Толстой",
+                year: 1869,
+                genre: "Роман",
+                description: "Эпопея о войне и любви.",
+                popularity: 5,
+                image: "img/book/warandworld.jpg"
+            },
+            {
+                title: "Преступление и наказание",
+                author: "Фёдор Достоевский",
+                year: 1866,
+                genre: "Роман",
+                description: "Драма о морали и искуплении.",
+                popularity: 4,
+                image: "img/book/преступление и наказ.webp"
+            },
+            {
+                title: "Мастер и Маргарита",
+                author: "Михаил Булгаков",
+                year: 1967,
+                genre: "Фантастика",
+                description: "Мистический роман о добре и зле.",
+                popularity: 5,
+                image: "img/book/мастер и маргарита.webp"
+            },
+            {
+                title: "Отцы и дети",
+                author: "Иван Тургенев",
+                year: 1862,
+                genre: "Роман",
+                description: "Конфликт поколений и взглядов.",
+                popularity: 3,
+                image: "img/book/отцы и дети.png"
+            },
+            {
+                title: "Евгений Онегин",
+                author: "Александр Пушкин",
+                year: 1833,
+                genre: "Поэма",
+                description: "Роман в стихах о любви и судьбе.",
+                popularity: 4,
+                image: "img/book/евгений онегин.jpg"
+            }
         ];
-
+    
         function displayArticles(filteredArticles) {
             const articlesContainer = document.querySelector(".articles");
             articlesContainer.innerHTML = "";
             filteredArticles.forEach(article => {
                 articlesContainer.innerHTML += `
                     <div class="article">
-                        <img src="#" alt="Картинка">
+                        <img src="${article.image}" alt="Обложка книги ${article.title}">
                         <div class="article-content">
                             <h3>${article.title}</h3>
                             <p><b>Автор:</b> ${article.author}</p>
@@ -117,26 +157,11 @@
                 `;
             });
         }
-
-        function toggleFilters() {
-            const filters = document.querySelector(".filters");
-            filters.style.display = filters.style.display === "none" ? "block" : "none";
-        }
-
-        function filterArticles() {
-            const selectedGenres = Array.from(document.querySelectorAll("input[name='genre']:checked")).map(input => input.value);
-            const selectedYears = Array.from(document.querySelectorAll("input[name='year']:checked")).map(input => Number(input.value));
-            const filtered = articles.filter(article => 
-                (selectedGenres.length === 0 || selectedGenres.includes(article.genre)) &&
-                (selectedYears.length === 0 || selectedYears.includes(article.year))
-            );
-            displayArticles(filtered);
-        }
-
+    
         document.addEventListener("DOMContentLoaded", () => {
             displayArticles(articles);
         });
-    </script>
+    </script>    
 </head>
 <body>    
     <header>

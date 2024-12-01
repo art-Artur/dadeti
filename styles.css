@@ -64,7 +64,6 @@ header {
     flex-direction: column;
     align-items: center;
 }
-
 .carousel-container {
     display: flex;
     justify-content: center;
@@ -74,15 +73,43 @@ header {
     height: 300px;
     background-color: #c8d9e6;
     border-radius: 20px;
-    position: relative;
 }
 
 .carousel-slide1, .carousel-slide2, .carousel-slide3, .carousel-slide4, .carousel-slide5 {
-    display: none; 
+    display: none;
     width: 100%;
     height: 100%;
-    background-color: #c8d9e6;
-    border-radius: 20px;
+    flex-direction: row; /* Выравнивание элементов горизонтально */
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.carousel-slide1 img, .carousel-slide2 img, .carousel-slide3 img, .carousel-slide4 img, .carousel-slide5 img {
+    width: 220px;
+    height: 250px;
+    border-radius: 10px;
+    margin-left: 550px; /* Изображение справа */
+    margin-top: -200px;
+}
+.book-button {
+    background-color: #567c8d;
+    color: #ffffff;
+    width: 170px;
+    font-size: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 100px;
+    margin-left: 50px;
+}
+
+.carousel-slide1 p, .carousel-slide2 p, .carousel-slide3 p, .carousel-slide4 p, .carousel-slide5 p {
+    width: 60%;
+    font-size: 22px;
+    color: #000000;
+    text-align: left;
 }
 
 .active {
@@ -93,16 +120,16 @@ header {
     background-color: #c8d9e6;
 }
 .carousel-slide2 {
-    background-color: yellow;
+    background-color: #9ec6d5;
 }
 .carousel-slide3 {
-    background-color: green;
+    background-color: #e4edf3;
 }
 .carousel-slide4 {
-    background-color: blue;
+    background-color: #455d72;
 }
 .carousel-slide5 {
-    background-color: purple;
+    background-color: #6c93ab;
 }
 
 .prev, .next {
@@ -186,9 +213,18 @@ header {
 }
 
 .read-today .item {
-    width: 150px;
-    height: 150px;
+    width: 195px;
+    height: 195px;
     background-color: #2f4156;
+    border-radius: 10px;
+    color: #ffffff;
+}
+
+.read-today .item img{
+    margin-top: 10px;
+    margin-bottom: 15px;
+    width: 100px;
+    height: 120px;
     border-radius: 10px;
 }
 

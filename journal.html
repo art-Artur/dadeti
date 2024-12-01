@@ -91,52 +91,6 @@
             background-color: #ff4d4d;
         }
     </style>
-    <script>
-        const magazines = [
-            { title: "Мир науки", editor: "Иван Иванов", year: 2024, genre: "Наука", description: "Самые последние достижения в науке.", popularity: 5 },
-            { title: "Мода и стиль", editor: "Анна Петрова", year: 2023, genre: "Мода", description: "Все о последнем в мире моды.", popularity: 4 },
-            { title: "Технологии будущего", editor: "Петр Смирнов", year: 2022, genre: "Технологии", description: "Революционные идеи и проекты.", popularity: 5 },
-            { title: "Путеводитель по миру", editor: "Елена Кузнецова", year: 2021, genre: "Путеводитель", description: "Лучшие маршруты и советы для путешественников.", popularity: 3 },
-            { title: "Здоровье и фитнес", editor: "Мария Лебедева", year: 2020, genre: "Здоровье", description: "Как поддерживать здоровье и физическую форму.", popularity: 4 }
-        ];
-
-        function displayMagazines(filteredMagazines) {
-            const magazinesContainer = document.querySelector(".articles");
-            magazinesContainer.innerHTML = "";
-            filteredMagazines.forEach(magazine => {
-                magazinesContainer.innerHTML += `
-                    <div class="article">
-                        <img src="#" alt="Обложка">
-                        <div class="article-content">
-                            <h3>${magazine.title}</h3>
-                            <p><b>Редактор:</b> ${magazine.editor}</p>
-                            <p><b>Жанр:</b> ${magazine.genre}, <b>Год:</b> ${magazine.year}</p>
-                            <p>${magazine.description}</p>
-                        </div>
-                    </div>
-                `;
-            });
-        }
-
-        function toggleFilters() {
-            const filters = document.querySelector(".filters");
-            filters.style.display = filters.style.display === "none" ? "block" : "none";
-        }
-
-        function filterMagazines() {
-            const selectedGenres = Array.from(document.querySelectorAll("input[name='genre']:checked")).map(input => input.value);
-            const selectedYears = Array.from(document.querySelectorAll("input[name='year']:checked")).map(input => Number(input.value));
-            const filtered = magazines.filter(magazine => 
-                (selectedGenres.length === 0 || selectedGenres.includes(magazine.genre)) &&
-                (selectedYears.length === 0 || selectedYears.includes(magazine.year))
-            );
-            displayMagazines(filtered);
-        }
-
-        document.addEventListener("DOMContentLoaded", () => {
-            displayMagazines(magazines);
-        });
-    </script>
 </head>
 <body>    
     <header>
@@ -189,5 +143,51 @@
     <footer class="footer">
         <p>&copy; 2024 Книжный компас. А те, кто делали этот проект - крутышки:)</p>
     </footer>
+    <script>
+        const magazines = [
+            { title: "Мир науки", editor: "Иван Иванов", year: 2024, genre: "Наука", description: "Самые последние достижения в науке.", popularity: 5, image: "img/journal/1j.webp" },
+            { title: "Мода и стиль", editor: "Анна Петрова", year: 2023, genre: "Мода", description: "Все о последнем в мире моды.", popularity: 4, image: "img/journal/2j.jpg" },
+            { title: "Технологии будущего", editor: "Петр Смирнов", year: 2022, genre: "Технологии", description: "Революционные идеи и проекты.", popularity: 5, image: "img/journal/3j.webp" },
+            { title: "Путеводитель по миру", editor: "Елена Кузнецова", year: 2021, genre: "Путеводитель", description: "Лучшие маршруты и советы для путешественников.", popularity: 3, image: "img/journal/4j.webp" },
+            { title: "Здоровье и фитнес", editor: "Мария Лебедева", year: 2020, genre: "Здоровье", description: "Как поддерживать здоровье и физическую форму.", popularity: 4, image: "img/journal/5j.jpg" }
+        ];
+    
+        function displayMagazines(filteredMagazines) {
+            const magazinesContainer = document.querySelector(".articles");
+            magazinesContainer.innerHTML = "";
+            filteredMagazines.forEach(magazine => {
+                magazinesContainer.innerHTML += `
+                    <div class="article">
+                        <img src="${magazine.image}" alt="${magazine.title}">
+                        <div class="article-content">
+                            <h3>${magazine.title}</h3>
+                            <p><b>Редактор:</b> ${magazine.editor}</p>
+                            <p><b>Жанр:</b> ${magazine.genre}, <b>Год:</b> ${magazine.year}</p>
+                            <p>${magazine.description}</p>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+    
+        function toggleFilters() {
+            const filters = document.querySelector('.filters');
+            filters.style.display = filters.style.display === 'none' || !filters.style.display ? 'block' : 'none';
+        }
+    
+        function filterMagazines() {
+            const selectedGenres = Array.from(document.querySelectorAll('input[name="genre"]:checked')).map(input => input.value);
+            const selectedYears = Array.from(document.querySelectorAll('input[name="year"]:checked')).map(input => parseInt(input.value));
+            const filtered = magazines.filter(magazine => {
+                const genreMatch = !selectedGenres.length || selectedGenres.includes(magazine.genre);
+                const yearMatch = !selectedYears.length || selectedYears.includes(magazine.year);
+                return genreMatch && yearMatch;
+            });
+            displayMagazines(filtered);
+        }
+    
+        // Отображение всех журналов при загрузке
+        displayMagazines(magazines);
+    </script>
 </body>
 </html>
