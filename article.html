@@ -93,30 +93,32 @@
     </style>
     <script>
         const articles = [
-            { title: "Искусственный интеллект в 2024 году", author: "Сергей Петров", year: 2024, category: "Технологии", description: "Новые тренды в области ИИ.", popularity: 5 },
-            { title: "Зеленая энергия", author: "Алексей Иванов", year: 2023, category: "Экология", description: "Путь к экологической устойчивости.", popularity: 4 },
-            { title: "Будущее транспорта", author: "Мария Лебедева", year: 2022, category: "Транспорт", description: "Как технологии меняют транспортные системы.", popularity: 5 },
-            { title: "Космические исследования", author: "Елена Кузнецова", year: 2021, category: "Наука", description: "Новые горизонты в космических исследованиях.", popularity: 3 },
-            { title: "Управление проектами", author: "Иван Смирнов", year: 2020, category: "Бизнес", description: "Техники эффективного управления проектами.", popularity: 4 }
+        { title: "Искусственный интеллект в 2024 году", author: "Сергей Петров", year: 2024, category: "Технологии", description: "Новые тренды в области ИИ.", popularity: 5, image: "img/article/1a.jpg" },
+        { title: "Зеленая энергия", author: "Алексей Иванов", year: 2023, category: "Экология", description: "Путь к экологической устойчивости.", popularity: 4, image: "img/article/2a.webp" },
+        { title: "Будущее транспорта", author: "Мария Лебедева", year: 2022, category: "Транспорт", description: "Как технологии меняют транспортные системы.", popularity: 5, image: "img/article/3a.webp" },
+        { title: "Космические исследования", author: "Елена Кузнецова", year: 2021, category: "Наука", description: "Новые горизонты в космических исследованиях.", popularity: 3, image: "img/article/4a.webp" },
+        { title: "Управление проектами", author: "Иван Смирнов", year: 2020, category: "Бизнес", description: "Техники эффективного управления проектами.", popularity: 4, image: "img/article/5a.avif" }
         ];
 
+
         function displayArticles(filteredArticles) {
-            const articlesContainer = document.querySelector(".articles");
-            articlesContainer.innerHTML = "";
-            filteredArticles.forEach(article => {
-                articlesContainer.innerHTML += `
-                    <div class="article">
-                        <img src="#" alt="Изображение">
-                        <div class="article-content">
-                            <h3>${article.title}</h3>
-                            <p><b>Автор:</b> ${article.author}</p>
-                            <p><b>Категория:</b> ${article.category}, <b>Год:</b> ${article.year}</p>
-                            <p>${article.description}</p>
-                        </div>
+        const articlesContainer = document.querySelector(".articles");
+        articlesContainer.innerHTML = "";
+        filteredArticles.forEach(article => {
+            articlesContainer.innerHTML += `
+                <div class="article">
+                    <img src="${article.image}" alt="${article.title}">
+                    <div class="article-content">
+                        <h3>${article.title}</h3>
+                        <p><b>Автор:</b> ${article.author}</p>
+                        <p><b>Категория:</b> ${article.category}, <b>Год:</b> ${article.year}</p>
+                        <p>${article.description}</p>
                     </div>
-                `;
-            });
+                </div>
+            `;
+        });
         }
+
 
         function toggleFilters() {
             const filters = document.querySelector(".filters");
