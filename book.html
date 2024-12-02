@@ -8,20 +8,22 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #fdfaf7;
+            background-color: var(--bg-color);
             margin: 0;
             padding: 0;
         }
+
         .page-wrapper {
             padding: 20px;
         }
+
         .filter-modal {
             position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             width: 300px;
-            background-color: #d9ecf2;
+            background-color: var(--carousel-bg-color);
             padding: 20px;
             border-radius: 8px;
             display: none;
@@ -29,75 +31,89 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             font-size: 22px;
         }
+
         .filter-modal button {
             margin-top: 20px;
             font-size: 22px;
         }
+
         .content-container {
             width: 100%;
         }
+
         .content-card {
             display: flex;
             margin-bottom: 20px;
             padding: 15px;
-            background-color: #fff;
+            background-color: var(--bg-color);
             border: 1px solid #ddd;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
+
         .content-card img {
             width: 180px;
             height: 180px;
             margin-right: 15px;
             border-radius: 8px;
-            background-color: #3b5f78;
-            color: #fff;
+            background-color: var(--item-bg-color);
+            color: var(--item-text-color);
             display: flex;
             justify-content: center;
             align-items: center;
             font-size: 14px;
             font-weight: bold;
         }
+
         .content-details {
             flex: 1;
         }
+
         .content-details h3 {
             margin: 0;
             font-size: 28px;
+            color: var(--text-color);
         }
+
         .content-details p {
             margin: 10px 0;
-            color: #555;
+            color: var(--text-color);
             font-size: 22px;
         }
+
         .filter-button {
             margin-bottom: 10px;
             padding: 10px 20px;
-            background-color: #3b5f78;
-            color: #fff;
+            background-color: var(--button-bg-color);
+            color: var(--button-text-color);
             border: none;
             border-radius: 8px;
             cursor: pointer;
             font-size: 24px;
             margin-left: 10px;
         }
+
         .filter-button:hover {
-            background-color: #567c8d;
+            background-color: var(--button-hover-bg-color);
         }
+
         .close-button {
             display: block;
             margin-bottom: 10px;
             padding: 10px;
             background-color: #ff6b6b;
-            color: #fff;
+            color: var(--footer-text-color);
             border: none;
             border-radius: 8px;
             cursor: pointer;
             text-align: center;
         }
+
         .close-button:hover {
             background-color: #ff4d4d;
         }
+
+        
     </style>    
 </head>
 <body>    
@@ -114,7 +130,7 @@
                 <li><a href="./book.html">Книги</a></li>
                 <li><a href="./journal.html">Журналы</a></li>
                 <li><a href="./article.html">Статьи</a></li>
-                <button>Версия для слабовидящих</button>
+                <button id="theme-toggle-button">Версия для слабовидящих</button>
             </ul>
         </div>
         
@@ -126,7 +142,7 @@
     </section>
     <button class="filter-button" onclick="toggleFilters()">Фильтры</button>
     <div class="container"></div>
-        <div class="filters" style="display: none; padding: 20px; background-color: #f0f0f0; border-radius: 8px; margin-bottom: 20px;">
+        <div class="filters" style="display: none; padding: 20px; background-color: var(--bg-color); border-radius: 8px; margin-bottom: 20px;">
             <div style="margin-bottom: 10px;">
                 <label for="genreFilter" style="font-size: 18px; margin-right: 10px;">Жанр:</label>
                 <select id="genreFilter" onchange="applyFilters()" style="padding: 5px; font-size: 16px;">
@@ -648,6 +664,48 @@
             populateFilters();
             renderBooks(articles);
         });
+
+
+        // Переключение темы
+        const toggleThemeButton = document.getElementById('theme-toggle-button');
+        const body = document.body;
+
+        // Функция для смены темы
+        function toggleTheme() {
+            body.classList.toggle('dark-theme');
+        }
+
+        // Устанавливаем слушатель события на кнопку для переключения темы
+        toggleThemeButton.addEventListener('click', toggleTheme);
+
+        // Модальное окно фильтра
+        const filterModal = document.querySelector('.filter-modal');
+        const filterButton = document.querySelector('.filter-button');
+        const closeButton = document.querySelector('.close-button');
+
+        // Функция для открытия модального окна
+        function openFilterModal() {
+            filterModal.style.display = 'block';
+        }
+
+        // Функция для закрытия модального окна
+        function closeFilterModal() {
+            filterModal.style.display = 'none';
+        }
+
+        // Слушатель на кнопку открытия фильтра
+        filterButton.addEventListener('click', openFilterModal);
+
+        // Слушатель на кнопку закрытия модального окна
+        closeButton.addEventListener('click', closeFilterModal);
+
+        // Закрытие модального окна при клике вне его
+        window.addEventListener('click', (event) => {
+            if (event.target === filterModal) {
+                closeFilterModal();
+            }
+        });
+
 
     </script>    
 </body>
