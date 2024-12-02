@@ -93,11 +93,13 @@
             margin-bottom: 10px;
             padding: 10px;
             background-color: var(--button-bg-color); /* Используем переменную для кнопки */
-            color: var(--footer-text-color); /* Используем переменную для текста */
+            color: var(--bg-color); /* Используем переменную для текста */
             border: none;
             border-radius: 8px;
             cursor: pointer;
             text-align: center;
+            margin-top: 2rem;
+            font-weight: bold;
         }
 
         .close-filters:hover {
@@ -211,20 +213,11 @@
         themeToggleButton.addEventListener("click", () => {
             body.classList.toggle("dark-theme");
             const isDark = body.classList.contains("dark-theme");
-            themeToggleButton.textContent = isDark ? "Светлая тема" : "Тёмная тема";
 
             // Сохранение текущей темы в локальном хранилище
             localStorage.setItem("theme", isDark ? "dark" : "light");
         });
 
-        // Установка темы при загрузке страницы
-        window.addEventListener("DOMContentLoaded", () => {
-            const savedTheme = localStorage.getItem("theme");
-            if (savedTheme === "dark") {
-                body.classList.add("dark-theme");
-                themeToggleButton.textContent = "Светлая тема";
-            }
-        });
 
         // Работа с модальным фильтром
         const filterToggleButton = document.querySelector(".filter-toggle-btn");
