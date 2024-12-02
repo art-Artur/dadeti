@@ -1,14 +1,14 @@
-const slides = document.querySelectorAll('.carousel-container div');
+const slides = document.querySelectorAll('.carousel-slide');
 const dots = document.querySelectorAll('.dot');
 let currentSlide = 0;
 
 function showSlide(index) {
     slides.forEach((slide, i) => {
-        slide.style.display = 'none'; 
-        dots[i].classList.remove('active'); 
+        slide.classList.remove('active');
+        dots[i].classList.remove('active');
     });
-    slides[index].style.display = 'block'; 
-    dots[index].classList.add('active'); 
+    slides[index].classList.add('active');
+    dots[index].classList.add('active');
 }
 
 document.querySelector('.next').addEventListener('click', () => {
@@ -21,9 +21,11 @@ document.querySelector('.prev').addEventListener('click', () => {
     showSlide(currentSlide);
 });
 
-showSlide(currentSlide);
+dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+        currentSlide = index;
+        showSlide(currentSlide);
+    });
+});
 
-setInterval(() => {
-    currentSlide = (currentSlide + 1) % slides.length;
-    showSlide(currentSlide);
-}, 10000); 
+showSlide(currentSlide);

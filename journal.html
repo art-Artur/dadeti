@@ -12,9 +12,7 @@
             margin: 0;
             padding: 0;
         }
-        .container {
-            padding: 20px;
-        }
+        
         .filters {
             position: fixed; /* Фиксированное положение */
             top: 50%;
@@ -27,9 +25,11 @@
             display: none; /* Скрываем фильтр по умолчанию */
             z-index: 10;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Тень */
+            font-size: 22px;
         }
         .articles {
             width: 100%;
+            font-size: 22px;
         }
         .article {
             display: flex;
@@ -41,8 +41,8 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         .article img {
-            width: 120px;
-            height: 120px;
+            width: 180px;
+            height: 180px;
             margin-right: 15px;
             border-radius: 8px;
             background-color: #3b5f78;
@@ -58,7 +58,7 @@
         }
         .article-content h3 {
             margin: 0;
-            font-size: 18px;
+            font-size: 28px;
         }
         .article-content p {
             margin: 10px 0;
@@ -72,6 +72,8 @@
             border: none;
             border-radius: 8px;
             cursor: pointer;
+            font-size: 24px;
+            margin-left: 10px;
         }
         .filter-toggle-btn:hover {
             background-color: #567c8d;
@@ -103,19 +105,21 @@
         <!-- Навигация -->
         <div class="navigation-panel">
             <ul>
-                <li><a href="book.html">Книги</a></li>
-                <li><a href="journal.html">Журналы</a></li>
-                <li><a href="article.html">Статьи</a></li>
+                <li><a href="./book.html">Книги</a></li>
+                <li><a href="./journal.html">Журналы</a></li>
+                <li><a href="./article.html">Статьи</a></li>
+                <button>Версия для слабовидящих</button>
             </ul>
         </div>
+        
     </header>
 
     <section class="search">
-        <input type="text" placeholder="Журналы, книги, статьи, сосиски...">
+        <input type="text" placeholder="Статьи, книги, журналы...">
         <button>Поиск</button>
     </section>
 
-    <button class="filter-toggle-btn" onclick="toggleFilters()">Показать фильтры</button>
+    <button class="filter-toggle-btn" onclick="toggleFilters()">Фильтры</button>
     <div class="container">
         <div class="filters">
             <h3>Фильтры</h3>
@@ -141,7 +145,7 @@
     </div>
 
     <footer class="footer">
-        <p>&copy; 2024 Книжный компас. А те, кто делали этот проект - крутышки:)</p>
+        <p>&copy; 2024 Книжный компас</p>
     </footer>
     <script>
         const magazines = [

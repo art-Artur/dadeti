@@ -12,26 +12,31 @@
             margin: 0;
             padding: 0;
         }
-        .container {
+        .page-wrapper {
             padding: 20px;
         }
-        .filters {
-            position: fixed; /* Фиксированное положение */
+        .filter-modal {
+            position: fixed;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%); /* Центровка */
+            transform: translate(-50%, -50%);
             width: 300px;
-            background-color: #d9ecf2; /* Голубой фон */
+            background-color: #d9ecf2;
             padding: 20px;
             border-radius: 8px;
-            display: none; /* Скрываем фильтр по умолчанию */
+            display: none;
             z-index: 10;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Тень */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            font-size: 22px;
         }
-        .articles {
+        .filter-modal button {
+            margin-top: 20px;
+            font-size: 22px;
+        }
+        .content-container {
             width: 100%;
         }
-        .article {
+        .content-card {
             display: flex;
             margin-bottom: 20px;
             padding: 15px;
@@ -40,9 +45,9 @@
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-        .article img {
-            width: 120px;
-            height: 120px;
+        .content-card img {
+            width: 180px;
+            height: 180px;
             margin-right: 15px;
             border-radius: 8px;
             background-color: #3b5f78;
@@ -53,18 +58,19 @@
             font-size: 14px;
             font-weight: bold;
         }
-        .article-content {
+        .content-details {
             flex: 1;
         }
-        .article-content h3 {
+        .content-details h3 {
             margin: 0;
-            font-size: 18px;
+            font-size: 28px;
         }
-        .article-content p {
+        .content-details p {
             margin: 10px 0;
             color: #555;
+            font-size: 22px;
         }
-        .filter-toggle-btn {
+        .filter-button {
             margin-bottom: 10px;
             padding: 10px 20px;
             background-color: #3b5f78;
@@ -72,11 +78,13 @@
             border: none;
             border-radius: 8px;
             cursor: pointer;
+            font-size: 24px;
+            margin-left: 10px;
         }
-        .filter-toggle-btn:hover {
+        .filter-button:hover {
             background-color: #567c8d;
         }
-        .close-filters {
+        .close-button {
             display: block;
             margin-bottom: 10px;
             padding: 10px;
@@ -87,7 +95,7 @@
             cursor: pointer;
             text-align: center;
         }
-        .close-filters:hover {
+        .close-button:hover {
             background-color: #ff4d4d;
         }
     </style>    
@@ -103,43 +111,44 @@
         <!-- Навигация -->
         <div class="navigation-panel">
             <ul>
-                <li><a href="book.html">Книги</a></li>
-                <li><a href="journal.html">Журналы</a></li>
-                <li><a href="article.html">Статьи</a></li>
+                <li><a href="./book.html">Книги</a></li>
+                <li><a href="./journal.html">Журналы</a></li>
+                <li><a href="./article.html">Статьи</a></li>
+                <button>Версия для слабовидящих</button>
             </ul>
         </div>
+        
     </header>
 
     <section class="search">
-        <input type="text" placeholder="Книги, журналы, статьи, сосиски...">
+        <input type="text" placeholder="Книги, журналы, статьи...">
         <button>Поиск</button>
     </section>
-
-    <button class="filter-toggle-btn" onclick="toggleFilters()">Показать фильтры</button>
-    <div class="container">
-        <div class="filters">
-            <h3>Фильтры</h3>
-            <div class="filter-category">
-                <h4>Жанры</h4>
-                <div><input type="checkbox" name="genre" value="Роман" onchange="filterArticles()"> Роман</div>
-                <div><input type="checkbox" name="genre" value="Фантастика" onchange="filterArticles()"> Фантастика</div>
-                <div><input type="checkbox" name="genre" value="Поэма" onchange="filterArticles()"> Поэма</div>
+    <button class="filter-button" onclick="toggleFilters()">Фильтры</button>
+    <div class="container"></div>
+        <div class="filters" style="display: none; padding: 20px; background-color: #f0f0f0; border-radius: 8px; margin-bottom: 20px;">
+            <div style="margin-bottom: 10px;">
+                <label for="genreFilter" style="font-size: 18px; margin-right: 10px;">Жанр:</label>
+                <select id="genreFilter" onchange="applyFilters()" style="padding: 5px; font-size: 16px;">
+                    <option value="">Все жанры</option>
+                </select>
             </div>
-            <div class="filter-category">
-                <h4>Годы</h4>
-                <div><input type="checkbox" name="year" value="1869" onchange="filterArticles()"> 1869</div>
-                <div><input type="checkbox" name="year" value="1866" onchange="filterArticles()"> 1866</div>
-                <div><input type="checkbox" name="year" value="1967" onchange="filterArticles()"> 1967</div>
-                <div><input type="checkbox" name="year" value="1833" onchange="filterArticles()"> 1833</div>
+            <div style="margin-bottom: 10px;">
+                <label for="authorFilter" style="font-size: 18px; margin-right: 10px;">Автор:</label>
+                <select id="authorFilter" onchange="applyFilters()" style="padding: 5px; font-size: 16px;">
+                    <option value="">Все авторы</option>
+                </select>
             </div>
-            <button class="close-filters" onclick="toggleFilters()">Закрыть</button>
+            <div style="margin-bottom: 10px;">
+                <label for="yearFilter" style="font-size: 18px; margin-right: 10px;">Год издания:</label>
+                <input type="number" id="yearFilter" placeholder="Год издания" oninput="applyFilters()" style="padding: 5px; font-size: 16px;">
+            </div>
         </div>
-        
-        <div class="articles"></div>
+        <div id="bookList" class="content-container"></div>        
     </div>
 
     <footer class="footer">
-        <p>&copy; 2024 Книжный компас. А те, кто делали этот проект - крутышки:)</p>
+        <p>&copy; 2024 Книжный компас</p>
     </footer>
     <script>
         function toggleFilters() {
@@ -149,87 +158,497 @@
 
         const articles = [
             {
-                title: "Война и мир",
-                author: "Лев Толстой",
-                year: 1869,
-                genre: "Роман",
-                description: "Эпопея о войне и любви.",
-                popularity: 5,
-                image: "img/book/warandworld.jpg"
+                title: "Гадкий утенок",
+                author: "Ханс Кристиан Андерсен",
+                year: 1843,
+                genre: "Сказка",
+                description: "История о утенке, который не похож на других и ищет свое место в мире.",
+                image: "imgage/gadkii_utonok.jpg",
+                popularity: 4
             },
             {
-                title: "Преступление и наказание",
-                author: "Фёдор Достоевский",
-                year: 1866,
-                genre: "Роман",
-                description: "Драма о морали и искуплении.",
-                popularity: 4,
-                image: "img/book/преступление и наказ.webp"
+                title: "Девочка со спичками",
+                author: "Ханс Кристиан Андерсен",
+                year: 1845,
+                genre: "Сказка",
+                description: "Трагическая история о девочке, продающей спички в холодную новогоднюю ночь.",
+                image: "imgage/devochka_so_spichkami.jpg",
+                popularity: 4
             },
             {
-                title: "Мастер и Маргарита",
-                author: "Михаил Булгаков",
-                year: 1967,
-                genre: "Фантастика",
-                description: "Мистический роман о добре и зле.",
-                popularity: 5,
-                image: "img/book/мастер и маргарита.webp"
+                title: "Дикие лебеди",
+                author: "Ханс Кристиан Андерсен",
+                year: 1838,
+                genre: "Сказка",
+                description: "История о девочке, которая помогает своим братьям, превращенным в диких лебедей.",
+                image: "imgage/dikie_lebedi.jpg",
+                popularity: 4
             },
             {
-                title: "Отцы и дети",
-                author: "Иван Тургенев",
-                year: 1862,
-                genre: "Роман",
-                description: "Конфликт поколений и взглядов.",
-                popularity: 3,
-                image: "img/book/отцы и дети.png"
+                title: "Дюймовочка",
+                author: "Ханс Кристиан Андерсен",
+                year: 1835,
+                genre: "Сказка",
+                description: "История о маленькой девочке, которая путешествует в удивительном мире.",
+                image: "imgage/dyuymovochka.jpg",
+                popularity: 4
             },
             {
-                title: "Евгений Онегин",
-                author: "Александр Пушкин",
-                year: 1833,
-                genre: "Поэма",
-                description: "Роман в стихах о любви и судьбе.",
-                popularity: 4,
-                image: "img/book/евгений онегин.jpg"
+                title: "Новое платье короля",
+                author: "Ханс Кристиан Андерсен",
+                year: 1837,
+                genre: "Сказка",
+                description: "История о короле, который показывает свое невидимое платье.",
+                image: "imgage/novoe_plate_korolya.jpg",
+                popularity: 4
+            },
+            {
+                title: "Огниво",
+                author: "Ханс Кристиан Андерсен",
+                year: 1835,
+                genre: "Сказка",
+                description: " О везучем солдате, который встретил в лесу ведьму, принесшую ему богатство.",
+                image: "imgage/ognivo.jpg",
+                popularity: 4
+            },
+            {
+                title: "Оловянный солдатик",
+                author: "Ханс Кристиан Андерсен",
+                year: 1838,
+                genre: "Сказка",
+                description: "История о храбром оловянном солдатике, который любит танцовщицу.",
+                image: "imgage/oloviany_soldatik.jpg",
+                popularity: 4
+            },
+            {
+                title: "Принцесса на горошине",
+                author: "Ханс Кристиан Андерсен",
+                year: 1835,
+                genre: "Сказка",
+                description: "История о принцессе, которая чувствует горошину под множеством матрасов.",
+                image: "imgage/princessa_na_goroshine.jpg",
+                popularity: 4
+            },
+            {
+                title: "Русалочка",
+                author: "Ханс Кристиан Андерсен",
+                year: 1837,
+                genre: "Сказка",
+                description: "История о русалке, которая влюбляется в человеческого принца и жертвует своим голосом.",
+                image: "imgage/rusalochka.jpg",
+                popularity: 4
+            },
+            {
+                title: "Снежная королева",
+                author: "Ханс Кристиан Андерсен",
+                year: 1845,
+                genre: "Сказка",
+                description: "История о девочке и мальчике, которые борются со Снежной королевой.",
+                image: "imgage/snezhnaya_koroleva.jpg",
+                popularity: 4
+            },
+            {
+                title: "Улитка и Роза",
+                author: "Ханс Кристиан Андерсен",
+                year: 1835,
+                genre: "Сказка",
+                description: "Философский разговор улитки и куста роз о смысле жизни.",
+                image: "imgage/ulitka_i_roza.jpg",
+                popularity: 4
+            },
+            {
+                title: "Как появилось первое письмо",
+                author: "Редьярд Киплинг",
+                year: 1901,
+                genre: "Сказка",
+                description: "Забавная история из жизни первобытных людей, которые еще не умели ни читать, ни писать.",
+                image: "imgage/kak_poyavilos_pervoye_pismo.jpg",
+                popularity: 4
+            },
+            {
+                title: "Кошка, гулявшая сама по себе",
+                author: "Редьярд Киплинг",
+                year: 1902,
+                genre: "Сказка",
+                description: "Сказка о приручении человеком тогда ещё диких животных.",
+                image: "imgage/koshka_gulyavshaya_sama_po_sebe.jpg",
+                popularity: 4
+            },
+            {
+                title: "Откуда взялись броненосцы",
+                author: "Редьярд Киплинг",
+                year: 1902,
+                genre: "Сказка",
+                description: "Увлекательная сказка о приключениях ёжика, черепахи и ягуара на берегах Амазонки.",
+                image: "imgage/otkuda_vzyalis_bronenoscy.jpg",
+                popularity: 4
+            },
+            {
+                title: "Почему кит ест только мелких рыбок",
+                author: "Редьярд Киплинг",
+                year: 1897,
+                genre: "Сказка",
+                description: "Кит, объевшись всех подводных обитателей, решает попробовать человека по совету крошечной рыбки.",
+                image: "imgage/pochemu_kit_est_tolko_malenkikh_rybok.jpg",
+                popularity: 4
+            },
+            {
+                title: "Просьба папаши кенгуру",
+                author: "Редьярд Киплинг",
+                year: 1900,
+                genre: "Сказка",
+                description: "Забавная сказака о том, как кенгуру обрёл интересную внешность и способность совершать огромные прыжки.",
+                image: "imgage/prosba_papashi_kenguru.jpg",
+                popularity: 4
+            },
+            {
+                title: "Рикки-Тикки-Тави",
+                author: "Редьярд Киплинг",
+                year: 1894,
+                genre: "Сказка",
+                description: "История о мангусте Рикки-Тикки-Тави, который защищает семью от змей-кобров.",
+                image: "imgage/rikki-tikki-tavi.jpg",
+                popularity: 4
+            },
+            {
+                title: "Рыжие собаки",
+                author: "Редьярд Киплинг",
+                year: 1895,
+                genre: "Сказка",
+                description: "Рассказ о нашествии диких псов и последней битве вожака Акелы.",
+                image: "imgage/ryzhyie_sobaki.jpg",
+                popularity: 4
+            },
+            {
+                title: "Слоненок",
+                author: "Редьярд Киплинг",
+                year: 1889,
+                genre: "Сказка",
+                description: "История любопытного и надоедливого слоненка, которого обижали все родственники, давая ему тумаков.",
+                image: "imgage/slontenok.jpg",
+                popularity: 4
+            },
+            {
+                title: "Автобус номер двадцать шесть",
+                author: "Самуил Маршак",
+                year: 1945,
+                genre: "Стих",
+                description: "Юморной стих о живтоных в автобусе.",
+                image: "imgage/avtobus.jpg",
+                popularity: 4
+            },
+            {
+                title: "Багаж",
+                author: "Самуил Маршак",
+                year: 1926,
+                genre: "Стих",
+                description: "Стих о том как дама сдает свой багаж вместе с собачкой.",
+                image: "imgage/bagazh.jpg",
+                popularity: 4
+            },
+            {
+                title: "Вот такой рассеянный",
+                author: "Самуил Маршак",
+                year: 1930,
+                genre: "Стих",
+                description: "Рассеяность обычного гражданина играет с ним злые шутки.",
+                image: "imgage/rasseyannij.jpg",
+                popularity: 4
+            },
+            {
+                title: "Где обедал воробей",
+                author: "Самуил Маршак",
+                year: 1934,
+                genre: "Стих",
+                description: "Воробей охотно делится, где и с кем он разделил свой обед.",
+                image: "imgage/gde_obedal_vorobey.jpg",
+                popularity: 4
+            },
+            {
+                title: "Детки в клетке",
+                author: "Самуил Маршак",
+                year: 1923,
+                genre: "Стих",
+                description: "Как ведут себя и о чем думают детеныши животных в клетках зверинца.",
+                image: "imgage/detki_v_kletke.jpg",
+                popularity: 4
+            },
+            {
+                title: "Дом, который построил Джек",
+                author: "Самуил Маршак",
+                year: 1924,
+                genre: "Стих",
+                description: "Русская версия английской произведения о строительстве дома и последующих событиях.",
+                image: "imgage/dom_kotoryj_postroil_dzhhek.jpg",
+                popularity: 4
+            },
+            {
+                title: "Кошкин дом",
+                author: "Самуил Маршак",
+                year: 1922,
+                genre: "Сказка",
+                description: "Сказка о горделивой кошке.",
+                image: "imgage/koshkin_dom.jpg",
+                popularity: 4
+            },
+            {
+                title: "Мяч",
+                author: "Самуил Маршак",
+                year: 1933,
+                genre: "Стих",
+                description: "О приключениях мячика от лица юного рассказчика.",
+                image: "imgage/myach.jpg",
+                popularity: 4
+            },
+            {
+                title: "Рассказ о неизвестном герое",
+                author: "Самуил Маршак",
+                year: 1937,
+                genre: "Стих",
+                description: "История о том, как целая столица ищет спасителя маленькой девочки.",
+                image: "imgage/rasskaz_o_neizvestnom_geroe.jpg",
+                popularity: 4
+            },
+            {
+                title: "Сказка о глупом мышонке",
+                author: "Самуил Маршак",
+                year: 1923,
+                genre: "Стих",
+                description: "О том, как мышка ищет няню своему мышонку, который никак не хочет засыпать.",
+                image: "imgage/skazka_o_glupom_myshonke.jpg",
+                popularity: 4
+            },
+            {
+                title: "Сказка об умном мышонке",
+                author: "Самуил Маршак",
+                year: 1923,
+                genre: "Стих",
+                description: "История о хитром мышонке, ускользающем от бед.",
+                image: "imgage/skazka_ob_umnom_myshonke.jpg",
+                popularity: 4
+            },
+            {
+                title: "Усатый-полосатый",
+                author: "Самуил Маршак",
+                year: 1929,
+                genre: "Стих",
+                description: "О том, как девочка заботилась о своем котенке.",
+                image: "imgage/usatyj-polosatyj.jpg",
+                popularity: 4
+            },
+            {
+                title: "Хороший день",
+                author: "Самуил Маршак",
+                year: 1989,
+                genre: "Стих",
+                description: "О чудесном воскресном дне, который маленький мальчик проводит вместе с папой.",
+                image: "imgage/khoroshij_den.jpg",
+                popularity: 4
+            },
+            {
+                title: "Автомобиль",
+                author: "Николай Носов",
+                year: 1939,
+                genre: "Рассказ",
+                description: "Приключения мальчишек, которые хотят прокатиться на автомобиле.",
+                image: "imgage/avtomobil.jpg",
+                popularity: 4
+            },
+            {
+                title: "Бенгальские огни",
+                author: "Николай Носов",
+                year: 1947,
+                genre: "Рассказ",
+                description: "Рассказ о мальчике, который хотел смастерить бенгальские огни, чтобы весело отметить новый год.",
+                image: "imgage/bengalskie_ogni.jpg",
+                popularity: 4
+            },
+            {
+                title: "Дружок",
+                author: "Николай Носов",
+                year: 1947,
+                genre: "Рассказ",
+                description: "Дачные приключения восьмилетних друзей и их лохматого приятеля.",
+                image: "imgage/druzhok.jpg",
+                popularity: 4
+            },
+            {
+                title: "Живая шляпа",
+                author: "Николай Носов",
+                year: 1938,
+                genre: "Рассказ",
+                description: "Может ли шляпа ожить и начать скакать по комнате? Может, если...",
+                image: "imgage/zhivaya_shlyapa.jpg",
+                popularity: 4
+            },
+            {
+                title: "Заплатка",
+                author: "Николай Носov",
+                year: 1941,
+                genre: "Рассказ",
+                description: "Бобка гордится своими штанами, но рвет их, что учит его бережливости и самостоятельности.",
+                image: "imgage/zaplataka.jpg",
+                popularity: 4
+            },
+            {
+                title: "Затейники",
+                author: "Николай Носов",
+                year: 1938,
+                genre: "Рассказ",
+                description: "Петя и Валя решают построить домик как в сказке про трех поросят.",
+                image: "imgage/zateyniki.jpg",
+                popularity: 4
+            },
+            {
+                title: "Клякса",
+                author: "Николай Носов",
+                year: 1957,
+                genre: "Рассказ",
+                description: "Рассказ о том, как небольшая клякса приводит к большим приключениям.",
+                image: "imgage/klyaksa.jpg",
+                popularity: 4
+            },
+            {
+                title: "Мишкина каша",
+                author: "Николай Носов",
+                year: 1944,
+                genre: "Рассказ",
+                description: "О том как Миша готовит кашу, игнорируя советы взрослых.",
+                image: "imgage/mishkina_kasha.jpg",
+                popularity: 4
+            },
+            {
+                title: "На горке",
+                author: "Николай Носов",
+                year: 1946,
+                genre: "Рассказ",
+                description: "История о зимних забавах, дружбе и общем труде.",
+                image: "imgage/na_gorke.jpg",
+                popularity: 4
+            },
+            {
+                title: "Наш каток",
+                author: "Николай Носов",
+                year: 1961,
+                genre: "Рассказ",
+                description: "Мальчишки строят каток, сталкиваясь с трудностями, но учатся решать их мирно и сплочённо.",
+                image: "imgage/nash_katok.jpg",
+                popularity: 4
+            },
+            {
+                title: "Огородники",
+                author: "Николай Носов",
+                year: 1945,
+                genre: "Рассказ",
+                description: "История о маленьких огородниках и их заботах.",
+                image: "imgage/ogorodniki.jpg",
+                popularity: 4
+            },
+            {
+                title: "Огурцы",
+                author: "Николай Носов",
+                year: 1945,
+                genre: "Рассказ",
+                description: "Поучителный рассказ о воровстве.",
+                image: "imgage/ogurtsy.jpg",
+                popularity: 4
+            },
+            {
+                title: "Ступеньки",
+                author: "Николай Носов",
+                year: 1945,
+                genre: "Рассказ",
+                description: "Как Петя научился считать до десяти.",
+                image: "imgage/stupenki.jpg",
+                popularity: 4
+            },
+            {
+                title: "Телефон",
+                author: "Николай Носов",
+                year: 1946,
+                genre: "Рассказ",
+                description: "Поучительное произведение о любопытстве двух друзей.",
+                image: "imgage/telefon.jpg",
+                popularity: 4
+            },
+            {
+                title: "Фантазёры",
+                author: "Николай Носов",
+                year: 1940,
+                genre: "Рассказ",
+                description: "Рассказ о детях, которые любят фантазировать и создавать истории.",
+                image: "imgage/fantazery.jpg",
+                popularity: 4
+            },
+            {
+                title: "Федина задача",
+                author: "Николай Носов",
+                year: 1956,
+                genre: "Рассказ",
+                description: "Как Федя решал скучную задачу, нескучным образом.",
+                image: "imgage/fedina_zadacha.jpg",
+                popularity: 4
             }
         ];
-    
-        function displayArticles(filteredArticles) {
-            const articlesContainer = document.querySelector(".articles");
-            articlesContainer.innerHTML = "";
-            filteredArticles.forEach(article => {
-                articlesContainer.innerHTML += `
-                    <div class="article">
-                        <img src="${article.image}" alt="Обложка книги ${article.title}">
-                        <div class="article-content">
-                            <h3>${article.title}</h3>
-                            <p><b>Автор:</b> ${article.author}</p>
-                            <p><b>Жанр:</b> ${article.genre}, <b>Год:</b> ${article.year}</p>
-                            <p>${article.description}</p>
-                        </div>
-                    </div>
-                `;
+
+        // Заполняем фильтры
+        function populateFilters() {
+            const genres = [...new Set(articles.map(book => book.genre))];
+            const authors = [...new Set(articles.map(book => book.author))];
+            const genreFilter = document.getElementById('genreFilter');
+            const authorFilter = document.getElementById('authorFilter');
+
+            genres.forEach(genre => {
+                const option = document.createElement('option');
+                option.value = genre;
+                option.textContent = genre;
+                genreFilter.appendChild(option);
+            });
+
+            authors.forEach(author => {
+                const option = document.createElement('option');
+                option.value = author;
+                option.textContent = author;
+                authorFilter.appendChild(option);
             });
         }
 
-        function filterArticles() {
-        const genres = Array.from(document.querySelectorAll('input[name="genre"]:checked')).map(cb => cb.value);
-        const years = Array.from(document.querySelectorAll('input[name="year"]:checked')).map(cb => cb.value);
-
-        const filteredArticles = articles.filter(article => {
-            const genreMatch = genres.length === 0 || genres.includes(article.genre);
-            const yearMatch = years.length === 0 || years.includes(article.year.toString());
-            return genreMatch && yearMatch;
-        });
-
-        displayArticles(filteredArticles);
+        // Применяем фильтры
+        function applyFilters() {
+            const genre = document.getElementById('genreFilter').value;
+            const author = document.getElementById('authorFilter').value;
+            const year = document.getElementById('yearFilter').value;
+            const filteredBooks = articles.filter(book => {
+                return (!genre || book.genre === genre) &&
+                    (!author || book.author === author) &&
+                    (!year || book.year == year);
+            });
+            renderBooks(filteredBooks);
         }
 
-    
-        document.addEventListener("DOMContentLoaded", () => {
-            displayArticles(articles);
+        // Рендерим книги
+        function renderBooks(books) {
+            const bookList = document.getElementById('bookList');
+            bookList.innerHTML = books.map(book => `
+                <div class="content-card">
+                    <img src="${book.image}" alt="${book.title}">
+                    <div class="content-details">
+                        <h3>${book.title}</h3>
+                        <p><strong>Автор:</strong> ${book.author}</p>
+                        <p><strong>Год:</strong> ${book.year}</p>
+                        <p><strong>Жанр:</strong> ${book.genre}</p>
+                        <p>${book.description}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Инициализация
+        document.addEventListener('DOMContentLoaded', () => {
+            populateFilters();
+            renderBooks(articles);
         });
+
     </script>    
 </body>
 </html>
