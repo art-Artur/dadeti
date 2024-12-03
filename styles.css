@@ -233,7 +233,7 @@ button.prev:hover, button.next:hover {
 }
 
 .dot.active {
-    background-color: #ffffff;
+    background-color: var(--carousel-bg-color);
 }
 
 .search {
