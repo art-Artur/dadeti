@@ -6,6 +6,7 @@ from django.db.models.functions import Lower
 class Genre(models.Model):
     """Модель жанра книги"""
     name = models.CharField(
+        verbose_name="Название",
         max_length=200,
         unique=True,
         help_text="Введите жанр книги"
@@ -34,14 +35,14 @@ class Book(models.Model):
     """
     Модель книги
     """
-    title = models.CharField(max_length=200)
-    author = models.ForeignKey('Author', on_delete=models.RESTRICT, null=True)
-    description = models.TextField(max_length=1000, help_text="Введите краткое описание книги")
-    genre = models.ManyToManyField(Genre, help_text="Выберите жанр книги")
-    year = models.DateField(null=True, blank=True)
-    image = models.CharField(max_length=200, null=True, blank=True)
-    book_text = models.TextField()
-    popularity = models.SmallIntegerField(help_text="Введите рейтинг популярности от 1 до 10")
+    title = models.CharField(verbose_name="Название", max_length=200)
+    author = models.ForeignKey('Author', verbose_name="Автор", on_delete=models.RESTRICT, null=True)
+    description = models.TextField(verbose_name="Описание", max_length=1000, help_text="Введите краткое описание книги")
+    genre = models.ManyToManyField(Genre, verbose_name="Жанр", help_text="Выберите жанр книги")
+    year = models.DateField(verbose_name="Дата написания", null=True, blank=True)
+    image = models.ImageField(verbose_name="Картинка", upload_to="main/static/image", max_length=200, null=True, blank=True)
+    book_text = models.TextField(verbose_name="Текст", null=True, blank=True)
+    popularity = models.SmallIntegerField(verbose_name="Популярность", help_text="Введите рейтинг популярности от 1 до 10")
 
     class Meta:
         verbose_name = "Книга"
@@ -66,11 +67,11 @@ class Author(models.Model):
     """
     Модель автора
     """
-    first_name = models.CharField(max_length=100)
-    last_name = models.CharField(max_length=100)
-    date_of_birth = models.DateField(null=True, blank=True)
-    date_of_death = models.DateField('Died', null=True, blank=True)
-    biography = models.TextField(max_length=1000, null=True, blank=True)
+    first_name = models.CharField(verbose_name="Имя", max_length=100)
+    last_name = models.CharField(verbose_name="Фамилия", max_length=100)
+    date_of_birth = models.DateField(verbose_name="Дата рождения", null=True, blank=True)
+    date_of_death = models.DateField(verbose_name="Дата смерти", null=True, blank=True)
+    biography = models.TextField(verbose_name="Биография", max_length=3000, null=True, blank=True)
 
     class Meta:
         verbose_name = "Автор"

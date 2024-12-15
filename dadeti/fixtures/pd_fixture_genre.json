@@ -1,0 +1,20 @@
+[
+  {
+    "model": "main.genre",
+    "fields": {
+      "name": "Сказка"
+    }
+  },
+  {
+    "model": "main.genre",
+    "fields": {
+      "name": "Стих"
+    }
+  },
+  {
+    "model": "main.genre",
+    "fields": {
+      "name": "Рассказ"
+    }
+  }
+]
