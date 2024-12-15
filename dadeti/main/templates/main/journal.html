@@ -113,15 +113,15 @@
         <!-- Логотип -->
         <div class="logo">
             <img src="../../static/img/logo.jpg" alt="Logo iconka">
-            <a href="/">Книжный компас</a>
+            <a href="{% url 'index' %}">Книжный компас</a>
         </div>
 
         <!-- Навигация -->
         <div class="navigation-panel">
             <ul>
-                <li><a href="/book">Книги</a></li>
-                <li><a href="/journal">Журналы</a></li>
-                <li><a href="/article">Статьи</a></li>
+                <li><a href="{% url 'book' %}">Книги</a></li>
+                <li><a href="{% url 'journal' %}">Журналы</a></li>
+                <li><a href="{% url 'article' %}">Статьи</a></li>
                 <button id="theme-toggle-button">Версия для слабовидящих</button>
             </ul>
         </div>
