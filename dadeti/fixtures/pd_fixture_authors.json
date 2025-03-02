@@ -1,0 +1,42 @@
+[
+  {
+    "model": "main.author",
+    "fields": {
+      "first_name": "Редьярд",
+      "last_name": "Киплинг",
+      "date_of_birth": "",
+      "date_of_death": "",
+      "biography": ""
+    }
+  },
+  {
+    "model": "main.author",
+    "fields": {
+      "first_name": "",
+      "last_name": "",
+      "date_of_birth": "",
+      "date_of_death": "",
+      "biography": ""
+    }
+  },
+  {
+    "model": "main.author",
+    "fields": {
+      "first_name": "",
+      "last_name": "",
+      "date_of_birth": "",
+      "date_of_death": "",
+      "biography": ""
+    }
+  },
+  {
+    "model": "main.author",
+    "fields": {
+      "first_name": "",
+      "last_name": "",
+      "date_of_birth": "",
+      "date_of_death": "",
+      "biography": ""
+    }
+  }
+]

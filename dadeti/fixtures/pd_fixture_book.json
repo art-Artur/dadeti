@@ -1,0 +1,626 @@
+[
+  {
+    "model": "main.book",
+    "fields": {
+      "title": "Гадкий утенок",
+      "author": "1",
+      "year": "1843-01-01",
+      "genre": "3",
+      "description": "История о утенке, который не похож на других и ищет свое место в мире.",
+      "image": "main/static/image/gadkii_utonok.jpg",
+      "popularity": "4",
+      "book_text": ""
+    }
+  },
+  {
+    "model": "main.book",
+    "fields": {
+      "title": "Девочка со спичками",
+      "author": "1",
+      "year": "1845-01-01",
+      "genre": "3",
+      "description": "Трагическая история о девочке, продающей спички в холодную новогоднюю ночь.",
+      "image": "main/static/image/devochka_so_spichkami.jpg",
+      "popularity": "4",
+      "book_text": ""
+    }
+  },
+  {
+    "model": "main.book",
+    "fields": {
+      "title": "Дикие лебеди",
+      "author": "1",
+      "year": "1838-01-01",
+      "genre": "3",
+      "description": "История о девочке, которая помогает своим братьям, превращенным в диких лебедей.",
+      "image": "main/static/image/dikie_lebedi.jpg",
+      "popularity": "4",
+      "book_text": ""
+    }
+  },
+  {
+    "model": "main.book",
+    "fields": {
+      "title": "Дюймовочка",
+      "author": "1",
+      "year": "1835-01-01",
+      "genre": "3",
+      "description": "История о маленькой девочке, которая путешествует в удивительном мире.",
+      "image": "main/static/image/dyuymovochka.jpg",
+      "popularity": "4",
+      "book_text": ""
+    }
+  },
+  {
+    "model": "main.book",
+    "fields": {
+      "title": "Новое платье короля",
+      "author": "1",
+      "year": "1837-01-01",
+      "genre": "3",
+      "description": "История о короле, который показывает свое невидимое платье.",
+      "image": "main/static/image/novoe_plate_korolya.jpg",
+      "popularity": "4",
+      "book_text": ""
+    }
+  },
+  {
+    "model": "main.book",
+    "fields": {
+      "title": "Огниво",
+      "author": "1",
+      "year": "1835-01-01",
+      "genre": "3",
+      "description": " О везучем солдате, который встретил в лесу ведьму, принесшей ему богатство.",
+      "image": "main/static/image/ognivo.jpg",
+      "popularity": "4",
+      "book_text": ""
+    }
+  },
+  {
+    "model": "main.book",
+    "fields": {
+      "title": "Оловянный солдатик",
+      "author": "1",
+      "year": "1838-01-01",
+      "genre": "3",
+      "description": "История о храбром оловянном солдатике, который любит танцовщицу.",
+      "image": "main/static/image/oloviany_soldatik.jpg",
+      "popularity": "4",
+      "book_text": ""
+    }
+  },
+  {
+    "model": "main.book",
+    "fields": {
+      "title": "Принцесса на горошине",
+      "author": "1",
+      "year": "1835-01-01",
+      "genre": "3",
+      "description": "История о принцессе, которая чувствует горошину под множеством матрасов.",
+      "image": "main/static/image/princessa_na_goroshine.jpg",
+      "popularity": "4",
+      "book_text": ""
+    }
+  },
+  {
+    "model": "main.book",
+    "fields": {
+      "title": "Русалочка",
+      "author": "1",
+      "year": "1837-01-01",
+      "genre": "3",
+      "description": "История о русалке, которая влюбляется в человеческого принца и жертвует своим голосом.",
+      "image": "main/static/image/rusalochka.jpg",
+      "popularity": "4",
+      "book_text": ""
+    }
+  },
+  {
+    "model": "main.book",
+    "fields": {
+      "title": "Снежная королева",
+      "author": "1",
+      "year": "1845-01-01",
+      "genre": "3",
+      "description": "История о девочке и мальчике, которые борются со Снежной королевой.",
+      "image": "main/static/image/snezhnaya_koroleva.jpg",
+      "popularity": "4",
+      "book_text": ""
+    }
+  },
+  {
+    "model": "main.book",
+    "fields": {
+      "title": "Улитка и Роза",
+      "author": "1",
+      "year": "1835-01-01",
+      "genre": "3",
+      "description": "Философский разговор улитки и куста роз о смысле жизни.",
+      "image": "main/static/image/ulitka_i_roza.jpg",
+      "popularity": "4",
+      "book_text": ""
+    }
+  },
+  {
+    "model": "main.book",
+    "fields": {
+      "title": "Как появилось первое письмо",
+      "author": "2",
+      "year": "1901-01-01",
+      "genre": "3",
+      "description": "Забавная история из жизни первобытных людей, которые еще не умели ни читать, ни писать.",
+      "image": "main/static/image/kak_poyavilos_pervoye_pismo.jpg",
+      "popularity": "4",
+      "book_text": ""
+    }
+  },
+  {
+    "model": "main.book",
+    "fields": {
+      "title": "Кошка, гулявшая сама по себе",
+      "author": "2",
+      "year": "1902-01-01",
+      "genre": "3",
+      "description": "Сказка о приручении человеком тогда ещё диких животных.",
+      "image": "main/static/image/koshka_gulyavshaya_sama_po_sebe.jpg",
+      "popularity": "4",
+      "book_text": ""
+    }
+  },
+  {
+    "model": "main.book",
+    "fields": {
+      "title": "Откуда взялись броненосцы",
+      "author": "2",
+      "year": "1902-01-01",
+      "genre": "3",
+      "description": "Увлекательная сказка о приключениях ёжика, черепахи и ягуара на берегах Амазонки.",
+      "image": "main/static/image/otkuda_vzyalis_bronenoscy.jpg",
+      "popularity": "4",
+      "book_text": ""
+    }
+  },
+  {
+    "model": "main.book",
+    "fields": {
+      "title": "Почему кит ест только мелких рыбок",
+      "author": "2",
+      "year": "1897-01-01",
+      "genre": "3",
+      "description": "Кит, объевшись всех подводных обитателей, решает попробовать человека по совету крошечной рыбки.",
+      "image": "main/static/image/pochemu_kit_est_tolko_malenkikh_rybok.jpg",
+      "popularity": "4",
+      "book_text": ""
+    }
+  },
+  {
+    "model": "main.book",
+    "fields": {
+      "title": "Просьба папаши кенгуру",
+      "author": "2",
+      "year": "1900-01-01",
+      "genre": "3",
+      "description": "Забавная сказака о том, как кенгуру обрёл интересную внешность и способность совершать огромные прыжки.",
+      "image": "main/static/image/prosba_papashi_kenguru.jpg",
+      "popularity": "4",
+      "book_text": ""
+    }
+  },
+  {
+    "model": "main.book",
+    "fields": {
+      "title": "Рикки-Тикки-Тави",
+      "author": "2",
+      "year": "1894-01-01",
+      "genre": "3",
+      "description": "История о мангусте Рикки-Тикки-Тави, который защищает семью от змей-кобров.",
+      "image": "main/static/image/rikki-tikki-tavi.jpg",
+      "popularity": "4",
+      "book_text": ""
+    }
+  },
+  {
+    "model": "main.book",
+    "fields": {
+      "title": "Рыжие собаки",
+      "author": "2",
+      "year": "1895-01-01",
+      "genre": "3",
+      "description": "Рассказ о нашествии диких псов и последней битвы вожака Акелы.",
+      "image": "main/static/image/ryzhyie_sobaki.jpg",
+      "popularity": "4",
+      "book_text": ""
+    }
+  },
+  {
+    "model": "main.book",
+    "fields": {
+      "title": "Слоненок",
+      "author": "2",
+      "year": "1889-01-01",
+      "genre": "3",
+      "description": "История любопытного и надоедливого слоненка, которого обижали все родственники, давая ему тумаков.",
+      "image": "main/static/image/slontenok.jpg",
+      "popularity": "4",
+      "book_text": ""
+    }
+  },
+  {
+    "model": "main.book",
+    "fields": {
+      "title": "Автобус номер двадцать шесть",
+      "author": "3",
+      "year": "1945-01-01",
+      "genre": "2",
+      "description": "Юморной стих о живтоных в автобусе.",
+      "image": "main/static/image/avtobus.jpg",
+      "popularity": "4",
+      "book_text": ""
+    }
+  },
+  {
+    "model": "main.book",
+    "fields": {
+      "title": "Багаж",
+      "author": "3",
+      "year": "1926-01-01",
+      "genre": "2",
+      "description": "Стих о том как дама сдает свой багаж вместе с собачкой.",
+      "image": "main/static/image/bagazh.jpg",
+      "popularity": "4",
+      "book_text": ""
+    }
+  },
+  {
+    "model": "main.book",
+    "fields": {
+      "title": "Вот такой рассеянный",
+      "author": "3",
+      "year": "1930-01-01",
+      "genre": "2",
+      "description": "Рассеяность обычного гражданина играет с ним злые шутки.",
+      "image": "main/static/image/rasseyannij.jpg",
+      "popularity": "4",
+      "book_text": ""
+    }
+  },
+  {
+    "model": "main.book",
+    "fields": {
+      "title": "Где обедал воробей",
+      "author": "3",
+      "year": "1934-01-01",
+      "genre": "2",
+      "description": "Воробей охотно делится, где и с кем он разделил свой обед.",
+      "image": "main/static/image/gde_obedal_vorobey.jpg",
+      "popularity": "4",
+      "book_text": ""
+    }
+  },
+  {
+    "model": "main.book",
+    "fields": {
+      "title": "Детки в клетке",
+      "author": "3",
+      "year": "1923-01-01",
+      "genre": "2",
+      "description": "Как ведут себя и о чем думают детеныши животных в клетках зверинца.",
+      "image": "main/static/image/detki_v_kletke.jpg",
+      "popularity": "4",
+      "book_text": ""
+    }
+  },
+  {
+    "model": "main.book",
+    "fields": {
+      "title": "Дом, который построил Джек",
+      "author": "3",
+      "year": "1924-01-01",
+      "genre": "2",
+      "description": "Русская версия английской произведения о строительстве дома и последующих событиях.",
+      "image": "main/static/image/dom_kotoryj_postroil_dzhhek.jpg",
+      "popularity": "4",
+      "book_text": ""
+    }
+  },
+  {
+    "model": "main.book",
+    "fields": {
+      "title": "Кошкин дом",
+      "author": "3",
+      "year": "1922-01-01",
+      "genre": "3",
+      "description": "Сказка о горделивой кошке.",
+      "image": "main/static/image/koshkin_dom.jpg",
+      "popularity": "4",
+      "book_text": ""
+    }
+  },
+  {
+    "model": "main.book",
+    "fields": {
+      "title": "Мяч",
+      "author": "3",
+      "year": "1933-01-01",
+      "genre": "2",
+      "description": "О приключениях мячика от лица юного рассказчика.",
+      "image": "main/static/image/myach.jpg",
+      "popularity": "4",
+      "book_text": ""
+    }
+  },
+  {
+    "model": "main.book",
+    "fields": {
+      "title": "Рассказ о неизвестном герое",
+      "author": "3",
+      "year": "1937-01-01",
+      "genre": "2",
+      "description": "История о том, как целая столица ищет спасителя маленькой девочки.",
+      "image": "main/static/image/rasskaz_o_neizvestnom_geroe.jpg",
+      "popularity": "4",
+      "book_text": ""
+    }
+  },
+  {
+    "model": "main.book",
+    "fields": {
+      "title": "Сказка о глупом мышонке",
+      "author": "3",
+      "year": "1923-01-01",
+      "genre": "2",
+      "description": "О том, как мышка ищет няню своему мышонку, который никак не хочет засыпать.",
+      "image": "main/static/image/skazka_o_glupom_myshonke.jpg",
+      "popularity": "4",
+      "book_text": ""
+    }
+  },
+  {
+    "model": "main.book",
+    "fields": {
+      "title": "Сказка об умном мышонке",
+      "author": "3",
+      "year": "1923-01-01",
+      "genre": "2",
+      "description": "История о хитром мышонке, ускользающем от бед.",
+      "image": "main/static/image/skazka_ob_umnom_myshonke.jpg",
+      "popularity": "4",
+      "book_text": ""
+    }
+  },
+  {
+    "model": "main.book",
+    "fields": {
+      "title": "Усатый-полосатый",
+      "author": "3",
+      "year": "1929-01-01",
+      "genre": "2",
+      "description": "О том, как девочка заботилась о своем котенке.",
+      "image": "main/static/image/usatyj-polosatyj.jpg",
+      "popularity": "4",
+      "book_text": ""
+    }
+  },
+  {
+    "model": "main.book",
+    "fields": {
+      "title": "Хороший день",
+      "author": "3",
+      "year": "1989-01-01",
+      "genre": "2",
+      "description": "О чудесном воскресном дне, который маленький мальчик проводит вместе с папой.",
+      "image": "main/static/image/khoroshij_den.jpg",
+      "popularity": "4",
+      "book_text": ""
+    }
+  },
+  {
+    "model": "main.book",
+    "fields": {
+      "title": "Автомобиль",
+      "author": "4",
+      "year": "1939-01-01",
+      "genre": "1",
+      "description": "Приключения мальчишек, которые хотят прокатиться на автомобиле.",
+      "image": "main/static/image/avtomobil.jpg",
+      "popularity": "4",
+      "book_text": ""
+    }
+  },
+  {
+    "model": "main.book",
+    "fields": {
+      "title": "Бенгальские огни",
+      "author": "4",
+      "year": "1947-01-01",
+      "genre": "1",
+      "description": "Рассказ о мальчике, который хотел смастерить бенгальские огни, чтобы весело отметить новый год.",
+      "image": "main/static/image/bengalskie_ogni.jpg",
+      "popularity": "4",
+      "book_text": ""
+    }
+  },
+  {
+    "model": "main.book",
+    "fields": {
+      "title": "Дружок",
+      "author": "4",
+      "year": "1947-01-01",
+      "genre": "1",
+      "description": "Дачные приключения восьмилетних друзей и их лохматого приятеля.",
+      "image": "main/static/image/druzhok.jpg",
+      "popularity": "4",
+      "book_text": ""
+    }
+  },
+  {
+    "model": "main.book",
+    "fields": {
+      "title": "Живая шляпа",
+      "author": "4",
+      "year": "1938-01-01",
+      "genre": "1",
+      "description": "Может ли шляпа ожить и начать скакать по комнате? Может, если...",
+      "image": "main/static/image/zhivaya_shlyapa.jpg",
+      "popularity": "4",
+      "book_text": ""
+    }
+  },
+  {
+    "model": "main.book",
+    "fields": {
+      "title": "Заплатка",
+      "author": "4",
+      "year": "1941-01-01",
+      "genre": "1",
+      "description": "Бобка гордится своими штанами, но рвет их, что учит его бережливости и самостоятельности.",
+      "image": "main/static/image/zaplataka.jpg",
+      "popularity": "4",
+      "book_text": ""
+    }
+  },
+  {
+    "model": "main.book",
+    "fields": {
+      "title": "Затейники",
+      "author": "4",
+      "year": "1938-01-01",
+      "genre": "1",
+      "description": "Петя и Валя решают построить домик как в сказке про трех поросят.",
+      "image": "main/static/image/zateyniki.jpg",
+      "popularity": "4",
+      "book_text": ""
+    }
+  },
+  {
+    "model": "main.book",
+    "fields": {
+      "title": "Клякса",
+      "author": "4",
+      "year": "1957-01-01",
+      "genre": "1",
+      "description": "Рассказ о том, как небольшая клякса приводит к большим приключениям.",
+      "image": "main/static/image/klyaksa.jpg",
+      "popularity": "4",
+      "book_text": ""
+    }
+  },
+  {
+    "model": "main.book",
+    "fields": {
+      "title": "Мишкина каша",
+      "author": "4",
+      "year": "1944-01-01",
+      "genre": "1",
+      "description": "О том как Миша готовит кашу, игнорируя советы взрослых.",
+      "image": "main/static/image/mishkina_kasha.jpg",
+      "popularity": "4",
+      "book_text": ""
+    }
+  },
+  {
+    "model": "main.book",
+    "fields": {
+      "title": "На горке",
+      "author": "4",
+      "year": "1946-01-01",
+      "genre": "1",
+      "description": "История о зимних забавах, дружбе и общем труде.",
+      "image": "main/static/image/na_gorke.jpg",
+      "popularity": "4",
+      "book_text": ""
+    }
+  },
+  {
+    "model": "main.book",
+    "fields": {
+      "title": "Наш каток",
+      "author": "4",
+      "year": "1961-01-01",
+      "genre": "1",
+      "description": "Мальчишки строят каток, сталкиваясь с трудностями, но учатся решать их мирно и сплочённо.",
+      "image": "main/static/image/nash_katok.jpg",
+      "popularity": "4",
+      "book_text": ""
+    }
+  },
+  {
+    "model": "main.book",
+    "fields": {
+      "title": "Огородники",
+      "author": "4",
+      "year": "1945-01-01",
+      "genre": "1",
+      "description": "История о маленьких огородниках и их заботах.",
+      "image": "main/static/image/ogorodniki.jpg",
+      "popularity": "4",
+      "book_text": ""
+    }
+  },
+  {
+    "model": "main.book",
+    "fields": {
+      "title": "Огурцы",
+      "author": "4",
+      "year": "1945-01-01",
+      "genre": "1",
+      "description": "Поучителный рассказ о воровстве.",
+      "image": "main/static/image/ogurtsy.jpg",
+      "popularity": "4",
+      "book_text": ""
+    }
+  },
+  {
+    "model": "main.book",
+    "fields": {
+      "title": "Ступеньки",
+      "author": "4",
+      "year": "1945-01-01",
+      "genre": "1",
+      "description": "Как Петя научился считать до десяти.",
+      "image": "main/static/image/stupenki.jpg",
+      "popularity": "4",
+      "book_text": ""
+    }
+  },
+  {
+    "model": "main.book",
+    "fields": {
+      "title": "Телефон",
+      "author": "4",
+      "year": "1946-01-01",
+      "genre": "1",
+      "description": "Поучительное произведение о любопытстве двух друзей.",
+      "image": "main/static/image/telefon.jpg",
+      "popularity": "4",
+      "book_text": ""
+    }
+  },
+  {
+    "model": "main.book",
+    "fields": {
+      "title": "Фантазёры",
+      "author": "4",
+      "year": "1940-01-01",
+      "genre": "1",
+      "description": "Рассказ о детях, которые любят фантазировать и создавать истории.",
+      "image": "main/static/image/fantazery.jpg",
+      "popularity": "4",
+      "book_text": ""
+    }
+  },
+  {
+    "model": "main.book",
+    "fields": {
+      "title": "Федина задача",
+      "author": "4",
+      "year": "1956-01-01",
+      "genre": "1",
+      "description": "Как Федя решал скучную задачу, нескучным образом.",
+      "image": "main/static/image/fedina_zadacha.jpg",
+      "popularity": "4",
+      "book_text": ""
+    }
+  }
+]

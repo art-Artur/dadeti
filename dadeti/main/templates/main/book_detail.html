@@ -1,0 +1,14 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<h1>Title: {{ book.title }}</h1>
+
+<p><strong>Author:</strong><a href="{{ book.author.get_absolute_url }}">{{ book.author }}</a></p>
+<p><strong>Description:</strong> {{ book.description }}</p>
+<p><strong>Genre:</strong> {{ book.genre.all|join:", " }}</p>
+<p><strong>Year:</strong> {{ book.year }}</p>
+<img src= "" {{ book.image }}</p>
+<p><strong>Text:</strong> {{ book.book_text }}</p>
+//{{ book.popularity }}
+{% endblock %}
